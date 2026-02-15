@@ -3,324 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specwright – Build Products People Actually Want</title>
-    <meta name="description" content="Validate your market position and create winning product specifications with AI-powered analysis.">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- SEO -->
+    <title>Specwright – Spec-driven Development for Claude Code</title>
+    <meta name="description" content="Open-source framework that brings structured, specification-driven workflows to Claude Code. Create specs in the morning, let agents work autonomously all day.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Specwright – Spec-driven Development for Claude Code">
+    <meta property="og:description" content="Create feature specs, execute stories autonomously, visualize progress on Kanban boards. The missing process layer for AI-assisted development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://specwright.app">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6366f1',    // Indigo
-                        secondary: '#8b5cf6',  // Violet
-                        accent: '#06b6d4',     // Cyan
-                    }
+                        primary: { DEFAULT: '#1E3A5F', light: '#2D4A6F', dark: '#142840' },
+                        accent: { DEFAULT: '#00D4FF', dark: '#00B8E0' },
+                        surface: { alt: '#F5F7FA' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
                 }
             }
         }
     </script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/custom.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-dark { background: linear-gradient(135deg, #1E3A5F 0%, #142840 100%); }
+        .code-block { background: #1a1a2e; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body class="bg-white text-gray-900 font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+    <!-- Nav -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-2xl font-bold text-primary">Specwright</a>
+                <a href="/" class="text-xl font-bold text-primary">Specwright</a>
                 <div class="hidden md:flex items-center space-x-8">
+                    <a href="#workflow" class="text-gray-600 hover:text-primary transition">Workflow</a>
                     <a href="#features" class="text-gray-600 hover:text-primary transition">Features</a>
-                    <a href="#how-it-works" class="text-gray-600 hover:text-primary transition">How It Works</a>
-                    <a href="#pricing" class="text-gray-600 hover:text-primary transition">Pricing</a>
-                    <a href="#cta" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition">Get Started</a>
+                    <a href="#ui" class="text-gray-600 hover:text-primary transition">Web UI</a>
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="text-gray-600 hover:text-primary transition">GitHub</a>
+                    <a href="#install" class="bg-primary text-white font-semibold px-4 py-2 rounded-lg hover:bg-primary-dark transition">
+                        Get Started
+                    </a>
                 </div>
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
-            <div class="px-4 py-3 space-y-3">
-                <a href="#features" class="block text-gray-600 hover:text-primary">Features</a>
-                <a href="#how-it-works" class="block text-gray-600 hover:text-primary">How It Works</a>
-                <a href="#pricing" class="block text-gray-600 hover:text-primary">Pricing</a>
-                <a href="#cta" class="block bg-primary text-white px-4 py-2 rounded-lg text-center">Get Started</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Build Products People
-                <span class="text-primary">Actually Want</span>
-            </h1>
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-                Stop guessing. Validate your market position, analyze competitors, and create winning product specifications – powered by AI.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#cta" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition shadow-lg shadow-primary/25">
-                    Start Free Analysis
-                </a>
-                <a href="#how-it-works" class="bg-white text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition border border-gray-200">
-                    See How It Works
-                </a>
+    <!-- Hero -->
+    <section class="pt-28 pb-20 px-4 bg-gradient-to-b from-surface-alt to-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+                    Open Source • For Claude Code
+                </span>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                    Morgens spezifizieren.<br>
+                    <span class="text-primary">Den Tag autonom arbeiten lassen.</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Spec-driven Development Framework für Claude Code. Erstelle Feature-Spezifikationen wie im Enterprise-Umfeld – dann lass die Agents stundenlang autonom arbeiten.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="#install" class="bg-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-dark transition">
+                        Quick Start →
+                    </a>
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="bg-white text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition border border-gray-200">
+                        ⭐ Star on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Terminal Preview -->
+            <div class="code-block rounded-2xl p-6 text-sm font-mono text-gray-300 max-w-3xl mx-auto shadow-2xl">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="text-gray-500 ml-2">Claude Code</span>
+                </div>
+                <div class="space-y-2">
+                    <p><span class="text-accent">/create-spec</span> <span class="text-gray-500"># PO erstellt fachliche Requirements</span></p>
+                    <p class="text-gray-500">→ Requirements Dialog → Clarification → Implementation Plan</p>
+                    <p class="text-gray-500">→ User Stories mit Gherkin-Szenarien → Architect Refinement</p>
+                    <p class="text-gray-500">→ <span class="text-green-400">✓</span> spec.md, stories/, kanban.json erstellt</p>
+                    <p class="mt-4"><span class="text-accent">/execute-tasks</span> <span class="text-gray-500"># Agents arbeiten autonom</span></p>
+                    <p class="text-gray-500">→ Phase 1: Git Worktree → Phase 2-3: Implement + Test</p>
+                    <p class="text-gray-500">→ Code Review → Integration Validation → PR</p>
+                    <p class="text-gray-500">→ <span class="text-green-400">✓</span> Feature fertig, Self-Learning aktualisiert</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Core Workflow -->
+    <section id="workflow" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                    Everything You Need to Validate Your Product
+                    Der Enterprise-Workflow für AI-Coding
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    From market research to actionable specs – all in one place.
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto">
+                    Wie SCRUM/SAFe – aber mit AI Agents. PO spezifiziert, Architect verfeinert, Agents setzen um.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-surface-alt rounded-2xl p-6 relative">
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold">1</div>
+                    <div class="pt-4">
+                        <h3 class="font-semibold text-lg mb-2">/create-spec</h3>
+                        <p class="text-gray-600 text-sm mb-4">PO führt Requirements-Dialog. Fachliche Anforderungen werden geklärt.</p>
+                        <div class="text-xs font-mono text-gray-500 space-y-1">
+                            <p>→ requirements-clarification.md</p>
+                            <p>→ implementation-plan.md</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Market Analysis</h3>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-surface-alt rounded-2xl p-6 relative">
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold">2</div>
+                    <div class="pt-4">
+                        <h3 class="font-semibold text-lg mb-2">Stories + Refinement</h3>
+                        <p class="text-gray-600 text-sm mb-4">User Stories mit Gherkin-Szenarien. Architect fügt WAS/WIE/WO hinzu.</p>
+                        <div class="text-xs font-mono text-gray-500 space-y-1">
+                            <p>→ stories/story-001.md</p>
+                            <p>→ kanban.json</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-surface-alt rounded-2xl p-6 relative">
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold">3</div>
+                    <div class="pt-4">
+                        <h3 class="font-semibold text-lg mb-2">/execute-tasks</h3>
+                        <p class="text-gray-600 text-sm mb-4">Agents arbeiten Story für Story ab. Self-Review, Testing, Commits.</p>
+                        <div class="text-xs font-mono text-gray-500 space-y-1">
+                            <p>→ Code implementiert</p>
+                            <p>→ Tests geschrieben</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="bg-surface-alt rounded-2xl p-6 relative">
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-accent text-primary rounded-xl flex items-center justify-center font-bold">4</div>
+                    <div class="pt-4">
+                        <h3 class="font-semibold text-lg mb-2">Review + Learn</h3>
+                        <p class="text-gray-600 text-sm mb-4">Code Review, Integration Tests, PR. Learnings fließen zurück.</p>
+                        <div class="text-xs font-mono text-gray-500 space-y-1">
+                            <p>→ PR ready</p>
+                            <p>→ Self-Learning aktualisiert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Document Output -->
+            <div class="mt-12 bg-gray-50 rounded-2xl p-8">
+                <h3 class="font-semibold text-lg mb-4 text-center">Vollständige Dokumentation – automatisch</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+                    <div class="bg-white rounded-lg p-4 border border-gray-200">
+                        <p class="font-mono text-primary font-medium">spec.md</p>
+                        <p class="text-gray-500 text-xs mt-1">Feature-Übersicht</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border border-gray-200">
+                        <p class="font-mono text-primary font-medium">stories/</p>
+                        <p class="text-gray-500 text-xs mt-1">User Stories</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border border-gray-200">
+                        <p class="font-mono text-primary font-medium">kanban.json</p>
+                        <p class="text-gray-500 text-xs mt-1">Status Tracking</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border border-gray-200">
+                        <p class="font-mono text-primary font-medium">test-scenarios.md</p>
+                        <p class="text-gray-500 text-xs mt-1">Testfälle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-20 px-4 bg-surface-alt">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Features für Enterprise-Teams
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-2xl">📋</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Spec-Driven</h3>
                     <p class="text-gray-600">
-                        Deep-dive into your market landscape. Understand trends, gaps, and opportunities before you build.
+                        Alles beginnt mit einer Spezifikation. Requirements, Stories, Refinement – wie im echten SCRUM. Keine AI-Chaos mehr.
                     </p>
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
-                    <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-2xl">🧠</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Competitor Intelligence</h3>
+                    <h3 class="text-xl font-semibold mb-3">Self-Learning</h3>
                     <p class="text-gray-600">
-                        Know exactly what your competitors offer, where they fall short, and how to differentiate.
+                        Nach jeder Story werden Learnings in <code class="text-sm bg-gray-100 px-1 rounded">dos-and-donts.md</code> gespeichert. Agents wiederholen Fehler nicht.
                     </p>
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
-                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-2xl">🔀</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Specifications</h3>
+                    <h3 class="text-xl font-semibold mb-3">Multi-LLM per Story</h3>
                     <p class="text-gray-600">
-                        Generate detailed product specs that developers love – clear, actionable, and market-validated.
+                        Wähle das LLM pro Story: Claude, GLM, Kimi K2, MiniMax. Optimiere für Kosten, Qualität oder lokale Ausführung.
                     </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-2xl">📊</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Kanban Board</h3>
+                    <p class="text-gray-600">
+                        Visualisiere Specs und Stories auf einem Kanban Board. Drag & Drop Stories in die Queue. Sehe den Fortschritt live.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Autonome Queue</h3>
+                    <p class="text-gray-600">
+                        Schiebe mehrere Specs in die Queue. Agents arbeiten sie nacheinander ab – ohne dass du dabei sein musst.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-2xl">🌐</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Projektübergreifend</h3>
+                    <p class="text-gray-600">
+                        Öffne mehrere Projekte in der Web UI. Queue Specs projektübergreifend. Ein Dashboard für alles.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Git Strategy -->
+            <div class="mt-12 bg-white rounded-2xl p-8 border border-gray-100">
+                <div class="flex flex-col md:flex-row md:items-center gap-6">
+                    <div class="md:w-1/3">
+                        <h3 class="text-xl font-semibold mb-2">Git Strategy per Feature</h3>
+                        <p class="text-gray-600">
+                            Wähle pro Spec: Feature Branch oder Git Worktree. Parallele Features ohne Konflikte.
+                        </p>
+                    </div>
+                    <div class="md:w-2/3 bg-gray-50 rounded-xl p-4 font-mono text-sm">
+                        <p class="text-gray-500"># Worktree: Isolierte Entwicklung</p>
+                        <p class="text-primary">../project-worktrees/feature-login/</p>
+                        <p class="text-gray-400 mt-2"># Branch: Schnelle Features</p>
+                        <p class="text-primary">feature/SPEC-001-login</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+    <!-- Web UI Section -->
+    <section id="ui" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                    How It Works
+                    Specwright Web UI
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Three simple steps from idea to validated specification.
+                <p class="text-xl text-gray-500">
+                    Kanban Board, Chat Interface, Workflow Dashboard – alles in einer App.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                        1
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">📋</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Describe Your Product</h3>
-                    <p class="text-gray-600">
-                        Tell us about your product idea or existing solution. The more context, the better.
+                    <h3 class="font-semibold mb-2">Kanban Board</h3>
+                    <p class="text-gray-600 text-sm">
+                        Specs und Stories als Karten. Drag & Drop zwischen Spalten. Status auf einen Blick.
                     </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">💬</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Chat Interface</h3>
+                    <p class="text-gray-600 text-sm">
+                        Chat mit Claude Code direkt in der UI. Workflows starten, Fragen stellen, Specs erstellen.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">🚀</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Workflow Monitor</h3>
+                    <p class="text-gray-600 text-sm">
+                        Live-Fortschritt der Execution. Sehe welche Story gerade läuft, welche Tests laufen.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- UI Screenshot Placeholder -->
+            <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 text-center border-2 border-dashed border-gray-200">
+                <p class="text-gray-500 mb-4">Web UI Screenshot</p>
+                <div class="bg-white rounded-xl p-4 inline-block shadow-lg">
+                    <div class="flex gap-2 mb-4">
+                        <div class="bg-gray-100 rounded px-3 py-1 text-sm font-medium">Backlog</div>
+                        <div class="bg-gray-100 rounded px-3 py-1 text-sm font-medium">In Progress</div>
+                        <div class="bg-gray-100 rounded px-3 py-1 text-sm font-medium">Review</div>
+                        <div class="bg-primary/10 rounded px-3 py-1 text-sm font-medium text-primary">Done</div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 text-xs">
+                        <div class="bg-yellow-50 rounded p-2 border border-yellow-200">SPEC-001</div>
+                        <div class="bg-blue-50 rounded p-2 border border-blue-200">SPEC-002</div>
+                        <div class="bg-purple-50 rounded p-2 border border-purple-200">SPEC-003</div>
+                        <div class="bg-green-50 rounded p-2 border border-green-200">SPEC-004 ✓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Reference -->
+    <section class="py-20 px-4 bg-surface-alt">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Fokus-Commands
+                </h2>
+                <p class="text-gray-500">Die wichtigsten Workflows für den täglichen Einsatz</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl p-6 border border-gray-100 flex items-start gap-4">
+                    <code class="bg-primary text-white px-3 py-1 rounded font-mono text-sm whitespace-nowrap">/create-spec</code>
+                    <div>
+                        <p class="font-medium">Feature-Spezifikation erstellen</p>
+                        <p class="text-gray-500 text-sm">PO-Dialog → Clarification → Implementation Plan → User Stories → Architect Refinement</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border border-gray-100 flex items-start gap-4">
+                    <code class="bg-primary text-white px-3 py-1 rounded font-mono text-sm whitespace-nowrap">/execute-tasks</code>
+                    <div>
+                        <p class="font-medium">Stories ausführen</p>
+                        <p class="text-gray-500 text-sm">Git Setup → Implement → Test → Self-Review → Code Review → PR</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border border-gray-100 flex items-start gap-4">
+                    <code class="bg-primary text-white px-3 py-1 rounded font-mono text-sm whitespace-nowrap">/add-story</code>
+                    <div>
+                        <p class="font-medium">Story zu Spec hinzufügen</p>
+                        <p class="text-gray-500 text-sm">Neue Anforderung → Story erstellen → Zum Kanban hinzufügen</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border border-gray-100 flex items-start gap-4">
+                    <code class="bg-primary text-white px-3 py-1 rounded font-mono text-sm whitespace-nowrap">/add-bug</code>
+                    <div>
+                        <p class="font-medium">Bug mit Root-Cause-Analyse</p>
+                        <p class="text-gray-500 text-sm">Bug beschreiben → Analyse → Fix-Story erstellen</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border border-gray-100 flex items-start gap-4">
+                    <code class="bg-primary text-white px-3 py-1 rounded font-mono text-sm whitespace-nowrap">/add-todo</code>
+                    <div>
+                        <p class="font-medium">Schnelle Aufgabe zum Backlog</p>
+                        <p class="text-gray-500 text-sm">Lightweight Task → Backlog → Später abarbeiten</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border border-gray-100 flex items-start gap-4">
+                    <code class="bg-gray-200 text-gray-700 px-3 py-1 rounded font-mono text-sm whitespace-nowrap">/plan-product</code>
+                    <div>
+                        <p class="font-medium text-gray-500">Produkt planen (einmalig)</p>
+                        <p class="text-gray-400 text-sm">Product Brief → Tech Stack → Roadmap</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Section -->
+    <section id="install" class="py-20 px-4 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Quick Start
+                </h2>
+                <p class="text-gray-500">In 3 Minuten startklar</p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="bg-surface-alt rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                        <h3 class="font-semibold">Global installieren (einmalig)</h3>
+                    </div>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono text-gray-300 overflow-x-auto">
+                        <code>curl -sSL https://raw.githubusercontent.com/michsindlinger/specwright/main/setup-devteam-global.sh | bash</code>
+                    </div>
                 </div>
                 
                 <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                        2
+                <div class="bg-surface-alt rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                        <h3 class="font-semibold">Im Projekt installieren</h3>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AI-Powered Analysis</h3>
-                    <p class="text-gray-600">
-                        Our AI researches your market, analyzes competitors, and identifies positioning opportunities.
-                    </p>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono text-gray-300 overflow-x-auto">
+                        <code>cd your-project/<br>curl -sSL https://raw.githubusercontent.com/michsindlinger/specwright/main/setup.sh | bash<br>curl -sSL https://raw.githubusercontent.com/michsindlinger/specwright/main/setup-claude-code.sh | bash</code>
+                    </div>
                 </div>
                 
                 <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                        3
+                <div class="bg-surface-alt rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-accent text-primary w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                        <h3 class="font-semibold">Los geht's</h3>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Get Your Specs</h3>
-                    <p class="text-gray-600">
-                        Receive a comprehensive specification document ready for development.
-                    </p>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono text-gray-300 overflow-x-auto">
+                        <code>/plan-product <span class="text-gray-500"># Einmalig: Produkt planen</span><br>/create-spec <span class="text-gray-500"># Feature-Spec erstellen</span><br>/execute-tasks <span class="text-gray-500"># Stories abarbeiten</span></code>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                    Simple Pricing
-                </h2>
-                <p class="text-xl text-gray-600">
-                    Start free. Upgrade when you need more.
-                </p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Free Tier -->
-                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
-                    <p class="text-gray-600 mb-6">Perfect for exploring</p>
-                    <div class="text-4xl font-bold text-gray-900 mb-6">
-                        Free
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            1 product analysis
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Basic market overview
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Core specification output
-                        </li>
-                    </ul>
-                    <a href="#cta" class="block text-center bg-white text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition border border-gray-200">
-                        Get Started
-                    </a>
-                </div>
-                
-                <!-- Pro Tier -->
-                <div class="bg-primary rounded-2xl p-8 text-white relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-white/20 text-white text-sm px-3 py-1 rounded-full">
-                        Popular
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Pro</h3>
-                    <p class="text-white/80 mb-6">For serious builders</p>
-                    <div class="text-4xl font-bold mb-6">
-                        $49<span class="text-lg font-normal text-white/80">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Unlimited analyses
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Deep competitor research
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Full specification exports
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Priority support
-                        </li>
-                    </ul>
-                    <a href="#cta" class="block text-center bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                        Start Pro Trial
-                    </a>
-                </div>
+            <div class="mt-8 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
+                <p class="text-sm text-yellow-800">
+                    <strong>Voraussetzung:</strong> <a href="https://docs.anthropic.com/en/docs/claude-code" class="underline">Claude Code CLI</a> muss installiert sein.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="cta" class="py-20 bg-gradient-to-r from-primary to-secondary">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Ready to Build Something Great?
+    <!-- CTA -->
+    <section class="gradient-dark py-20 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">
+                Bereit für strukturierte AI-Entwicklung?
             </h2>
-            <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Join hundreds of founders and product teams who validate before they build.
+            <p class="text-xl text-white/70 mb-8">
+                Open Source. Für Claude Code. Enterprise-ready.
             </p>
-            <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    class="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
-                    required
-                >
-                <button 
-                    type="submit" 
-                    class="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition"
-                >
-                    Get Early Access
-                </button>
-            </form>
-            <p class="text-white/70 text-sm mt-4">
-                Free to start. No credit card required.
-            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/michsindlinger/specwright" target="_blank" class="bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition">
+                    ⭐ GitHub Repository
+                </a>
+                <a href="#install" class="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-dark transition">
+                    Quick Start →
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer class="bg-primary-dark text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-2xl font-bold text-white mb-4 md:mb-0">Specwright</div>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-white transition">Privacy</a>
-                    <a href="#" class="hover:text-white transition">Terms</a>
-                    <a href="#" class="hover:text-white transition">Contact</a>
+                <div class="text-xl font-bold mb-4 md:mb-0">Specwright</div>
+                <div class="flex space-x-6 text-white/60">
+                    <a href="https://github.com/michsindlinger/specwright" class="hover:text-white transition">GitHub</a>
+                    <a href="#" class="hover:text-white transition">Docs</a>
+                    <a href="#" class="hover:text-white transition">Discord</a>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-                © 2026 Specwright. All rights reserved.
+            <div class="border-t border-white/10 mt-8 pt-8 text-center text-white/40 text-sm">
+                © 2026 Specwright. Open Source.
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
