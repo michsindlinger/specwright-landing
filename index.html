@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specwright — Spec-Driven Development Framework for Claude Code</title>
-    <meta name="description" content="Open-source framework connecting enterprise SCRUM/SAFe processes with self-learning AI agents. From specification to feature delivery, autonomously.">
+    <title>Specwright — You architect. Agents deliver.</title>
+    <meta name="description" content="Open-source spec-driven development framework for Claude Code. Define your architecture interactively, let self-learning AI agents build features autonomously.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,18 +39,6 @@
                         sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
-                    borderRadius: {
-                        'sm': '8px',
-                        'md': '12px',
-                        'lg': '16px',
-                        'xl': '24px',
-                        '2xl': '32px',
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 12px rgba(30, 41, 59, 0.06)',
-                        'medium': '0 12px 24px rgba(30, 41, 59, 0.08)',
-                        'glow': '0 0 40px rgba(0, 212, 255, 0.12)',
-                    },
                 }
             }
         }
@@ -58,31 +46,18 @@
     <style>
         html { scroll-behavior: smooth; }
         body { background-color: #FFFBF7; }
-        
-        /* Navigation scroll effect */
         .nav-scrolled {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 12px rgba(30, 41, 59, 0.06);
         }
-        
-        /* Smooth transitions */
-        .transition-smooth {
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        /* Card hover */
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(30, 41, 59, 0.08);
         }
-        
-        /* Button hover */
         .btn-hover:hover {
             transform: translateY(-1px);
         }
-        
-        /* FAQ accordion */
         .faq-content {
             max-height: 0;
             overflow: hidden;
@@ -94,84 +69,75 @@
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
-        
-        /* Comparison table */
-        .comparison-check { color: #10B981; }
-        .comparison-x { color: #94A3B8; }
-        .comparison-partial { color: #F59E0B; }
+        .gradient-text {
+            background: linear-gradient(135deg, #1E3A5F 0%, #00D4FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
 <body class="font-sans text-slate-700 antialiased">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-smooth">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-5">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="#" class="text-2xl font-bold text-primary">
-                    Specwright
-                </a>
-                
-                <!-- Desktop Nav -->
+                <a href="#" class="text-2xl font-bold text-primary">Specwright</a>
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#features" class="text-slate-600 hover:text-primary transition-smooth">Features</a>
-                    <a href="#how-it-works" class="text-slate-600 hover:text-primary transition-smooth">How It Works</a>
-                    <a href="#pricing" class="text-slate-600 hover:text-primary transition-smooth">Pricing</a>
-                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="text-slate-600 hover:text-primary transition-smooth">GitHub</a>
+                    <a href="#features" class="text-slate-600 hover:text-primary transition-colors">Features</a>
+                    <a href="#how-it-works" class="text-slate-600 hover:text-primary transition-colors">How It Works</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-primary transition-colors">Pricing</a>
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="text-slate-600 hover:text-primary transition-colors">GitHub</a>
                 </div>
-                
-                <!-- CTA Button -->
-                <a href="#cta" class="hidden md:inline-flex bg-primary text-white px-6 py-3 rounded-md font-semibold btn-hover transition-smooth">
-                    Get Early Access
+                <a href="#cta" class="hidden md:inline-flex bg-primary text-white px-6 py-3 rounded-xl font-semibold btn-hover transition-all">
+                    Get Started
                 </a>
-                
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
-            
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <div class="flex flex-col gap-4">
                     <a href="#features" class="text-slate-600 hover:text-primary">Features</a>
                     <a href="#how-it-works" class="text-slate-600 hover:text-primary">How It Works</a>
                     <a href="#pricing" class="text-slate-600 hover:text-primary">Pricing</a>
                     <a href="https://github.com/michsindlinger/specwright" target="_blank" class="text-slate-600 hover:text-primary">GitHub</a>
-                    <a href="#cta" class="bg-primary text-white px-6 py-3 rounded-md font-semibold text-center">Get Early Access</a>
+                    <a href="#cta" class="bg-primary text-white px-6 py-3 rounded-xl font-semibold text-center">Get Started</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center bg-gradient-to-br from-primary to-primary-dark pt-20">
+    <section class="min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary-dark pt-20">
         <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
-            <div class="max-w-3xl">
-                <!-- Badge -->
-                <span class="inline-block bg-white/10 text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-8">
-                    Open Source
+            <div class="max-w-4xl">
+                <span class="inline-block bg-white/10 text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
+                    Open Source Framework for Claude Code
                 </span>
                 
-                <!-- Headline -->
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-                    Specify in the morning.<br>
-                    Let agents work autonomously.
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                    You architect.<br>
+                    <span class="text-accent">Agents deliver.</span>
                 </h1>
                 
-                <!-- Subheadline -->
-                <p class="text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
-                    The open-source framework that connects enterprise SCRUM/SAFe processes with self-learning AI agents — from product planning to feature delivery.
+                <p class="text-xl md:text-2xl text-white/70 leading-relaxed mb-4 max-w-2xl">
+                    Spec-driven development with self-learning AI agents.
                 </p>
                 
-                <!-- CTA Buttons -->
+                <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl">
+                    Define your architecture interactively. Create structured specifications. 
+                    Let autonomous agents build features while you sleep.
+                </p>
+                
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#cta" class="bg-accent text-primary px-8 py-4 rounded-md font-bold text-lg btn-hover transition-smooth text-center">
-                        Get Early Access
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="bg-accent text-primary px-8 py-4 rounded-xl font-bold text-lg btn-hover transition-all text-center">
+                        View on GitHub
                     </a>
-                    <a href="#how-it-works" class="bg-white/10 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-white/20 transition-smooth text-center">
+                    <a href="#how-it-works" class="bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all text-center border border-white/20">
                         See How It Works
                     </a>
                 </div>
@@ -184,32 +150,32 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                    AI coding without structure = wasted potential
+                    AI coding without structure = chaos over time
                 </h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Sound familiar?
+                </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pain Point 1 -->
-                <div class="bg-white p-8 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Context Lost Every Session</h3>
+                <div class="bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Every feature starts from zero</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        100% context loss per AI session. 2-3 hours daily just rebuilding what the AI forgot.
+                        No architecture guidelines. No conventions. Every time you explain where files go, which patterns apply, how to test.
                     </p>
                 </div>
                 
-                <!-- Pain Point 2 -->
-                <div class="bg-white p-8 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">40% Needs Rework</h3>
+                <div class="bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Inconsistent results</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        Almost half of AI-generated features require significant rework. Quality without process is a gamble.
+                        Feature A uses Redux, Feature B uses Zustand. REST here, GraphQL there. The codebase grows — but not together.
                     </p>
                 </div>
                 
-                <!-- Pain Point 3 -->
-                <div class="bg-white p-8 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Backlog Disconnect</h3>
+                <div class="bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Knowledge gets lost</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        No clear path from user story to working feature. AI coding exists in a silo.
+                        Why did we decide that? Nobody knows anymore. Documentation doesn't exist — or it's outdated.
                     </p>
                 </div>
             </div>
@@ -219,118 +185,293 @@
     <!-- Solution Section -->
     <section class="py-24 md:py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center">
+            <div class="max-w-3xl mx-auto text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                    Meet Specwright
+                    Meet your AI sparring partner
                 </h2>
                 <p class="text-xl text-primary font-semibold mb-6">
-                    The process layer for AI-assisted development
+                    Design decisions interactively. Execute autonomously.
                 </p>
-                <p class="text-lg text-slate-600 leading-relaxed mb-12">
-                    Specwright is an open-source framework that turns AI coding chaos into a structured, repeatable workflow. From product planning to feature delivery, with self-learning agents that get better with every iteration.
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Specwright guides you through architecture decisions with an AI sparring partner. 
+                    Every decision is documented. Every feature follows your rules automatically.
                 </p>
             </div>
             
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
                 <div class="text-center">
                     <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">34</div>
-                    <div class="text-slate-600">Structured Workflows</div>
+                    <div class="text-slate-600 text-sm">Workflows</div>
                 </div>
                 <div class="text-center">
                     <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">100%</div>
-                    <div class="text-slate-600">Open Source</div>
+                    <div class="text-slate-600 text-sm">Open Source</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">3-5x</div>
-                    <div class="text-slate-600">Faster Delivery</div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">∞</div>
+                    <div class="text-slate-600 text-sm">LLMs Supported</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">0</div>
+                    <div class="text-slate-600 text-sm">Vendor Lock-in</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autonomous Execution Section (Hero Feature) -->
+    <section class="py-24 md:py-32 bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Spec in the morning.<br>
+                    <span class="text-accent">PRs by evening.</span>
+                </h2>
+                <p class="text-xl text-white/70 max-w-2xl mx-auto">
+                    Specwright UI makes autonomous feature development real.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Auto-Mode -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                    <div class="text-accent font-bold text-sm mb-4 uppercase tracking-wide">Auto-Mode</div>
+                    <h3 class="text-2xl font-bold mb-4">Autonomous Kanban Boards</h3>
+                    <p class="text-white/80 leading-relaxed mb-6">
+                        Toggle Auto-Mode on — all stories on the board are executed autonomously, one by one.
+                    </p>
+                    <ul class="space-y-3 text-white/70">
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span><strong class="text-white">Multi-LLM:</strong> Assign different models per story</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span>Opus for complex architecture decisions</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span>Sonnet for standard CRUD operations</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span>Local models for sensitive data</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Spec Queue -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                    <div class="text-accent font-bold text-sm mb-4 uppercase tracking-wide">Spec Queue</div>
+                    <h3 class="text-2xl font-bold mb-4">Cross-Project Execution</h3>
+                    <p class="text-white/80 leading-relaxed mb-6">
+                        Queue complete feature specs — not just stories. Works across multiple projects.
+                    </p>
+                    <ul class="space-y-3 text-white/70">
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span>Feature A from Project X + Feature B from Project Y</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span>Press "Start" and walk away</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span>Go to sleep, go to the meeting, go to the weekend</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent mt-1">→</span>
+                            <span><strong class="text-white">Come back to finished pull requests</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p class="text-center text-white/60 mt-12 text-lg">
+                This isn't future tech. This is Specwright today.
+            </p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 md:py-32 bg-background">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+                    From idea to feature in 3 phases
+                </h2>
+            </div>
+            
+            <div class="space-y-16">
+                <!-- Phase 1 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="text-6xl font-extrabold text-primary/20 mb-4">01</div>
+                        <div class="inline-block bg-primary-subtle text-primary px-3 py-1 rounded-full text-sm font-mono mb-4">/plan-product</div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Plan your project</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Start with an interactive dialog. Your AI sparring partner asks the right questions:
+                        </p>
+                        <ul class="space-y-2 text-slate-600">
+                            <li>→ What's your product vision?</li>
+                            <li>→ Who's your target audience?</li>
+                            <li>→ Which tech stack fits best?</li>
+                            <li>→ What architecture pattern makes sense?</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-border shadow-sm">
+                        <div class="text-sm font-semibold text-slate-500 mb-4">Output Documents</div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 p-3 bg-background rounded-xl">
+                                <span class="font-mono text-sm text-primary">product-brief.md</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-background rounded-xl">
+                                <span class="font-mono text-sm text-primary">tech-stack.md</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-background rounded-xl">
+                                <span class="font-mono text-sm text-primary">architecture-decision.md</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-background rounded-xl">
+                                <span class="font-mono text-sm text-primary">roadmap.md</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase 2 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-2">
+                        <div class="text-6xl font-extrabold text-primary/20 mb-4">02</div>
+                        <div class="inline-block bg-primary-subtle text-primary px-3 py-1 rounded-full text-sm font-mono mb-4">/create-spec</div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Specify your feature</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Describe the feature in natural language. Specwright loads your project documents 
+                            and creates a specification that fits your architecture:
+                        </p>
+                        <ul class="space-y-2 text-slate-600">
+                            <li>→ Requirements (what?)</li>
+                            <li>→ Acceptance criteria (when done?)</li>
+                            <li>→ Technical refinement (how? where?)</li>
+                            <li>→ User stories (Gherkin format)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-border shadow-sm md:order-1">
+                        <div class="text-sm font-semibold text-slate-500 mb-4">Human-in-the-Loop</div>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-accent/20 text-accent rounded-full flex items-center justify-center font-bold text-sm">✓</div>
+                                <span class="text-slate-700">Approve requirements</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-accent/20 text-accent rounded-full flex items-center justify-center font-bold text-sm">✓</div>
+                                <span class="text-slate-700">Review implementation plan</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-accent/20 text-accent rounded-full flex items-center justify-center font-bold text-sm">✓</div>
+                                <span class="text-slate-700">Validate story breakdown</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-accent/20 text-accent rounded-full flex items-center justify-center font-bold text-sm">✓</div>
+                                <span class="text-slate-700">Confirm technical details</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-4">5-7 checkpoints per specification</p>
+                    </div>
+                </div>
+                
+                <!-- Phase 3 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="text-6xl font-extrabold text-primary/20 mb-4">03</div>
+                        <div class="inline-block bg-primary-subtle text-primary px-3 py-1 rounded-full text-sm font-mono mb-4">/execute-tasks</div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Let agents build</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            AI agents work through your specification story by story — 
+                            following your architecture rules:
+                        </p>
+                        <ul class="space-y-2 text-slate-600">
+                            <li>→ Skills auto-load (React, Express, etc.)</li>
+                            <li>→ Architecture conventions enforced</li>
+                            <li>→ Files land in the right place</li>
+                            <li>→ Code review at the end</li>
+                            <li>→ PR gets created automatically</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-border shadow-sm">
+                        <div class="text-sm font-semibold text-slate-500 mb-4">Self-Learning Agents</div>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-background rounded-xl">
+                                <div class="font-semibold text-slate-800 mb-1">story-997</div>
+                                <p class="text-sm text-slate-600">Code Review — Full diff review by Opus</p>
+                            </div>
+                            <div class="p-4 bg-background rounded-xl">
+                                <div class="font-semibold text-slate-800 mb-1">story-998</div>
+                                <p class="text-sm text-slate-600">Integration Validation — End-to-end tests</p>
+                            </div>
+                            <div class="p-4 bg-background rounded-xl">
+                                <div class="font-semibold text-slate-800 mb-1">story-999</div>
+                                <p class="text-sm text-slate-600">Finalize — Create PR, cleanup, docs</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-24 md:py-32 bg-background">
+    <section id="features" class="py-24 md:py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                    Everything enterprise teams need
-                </h2>
-                <p class="text-lg text-slate-600">
-                    From specification to delivery — with AI that learns
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-10 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Spec-Driven Workflow</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        From user story to tested pull request. Structured, traceable, reproducible. Every feature follows the same quality path.
-                    </p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="bg-white p-10 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Self-Learning Agents</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Agents that improve with every iteration. Mistakes are learned, never repeated. Quality increases measurably over time.
-                    </p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="bg-white p-10 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Architecture Governance</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Your architecture decisions become the source of truth. Consistent quality across all AI-generated features. No more architecture erosion.
-                    </p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="bg-white p-10 rounded-lg border border-border shadow-soft card-hover transition-smooth">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Enterprise-Ready Security</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Multi-LLM support including local models. Complete audit trails. Human-in-the-loop for every decision. Ready for regulated environments.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-24 md:py-32 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                    From idea to feature in 3 steps
+                    Everything for structured AI development
                 </h2>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="text-6xl font-extrabold text-primary/20 mb-4">01</div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Specify</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Interactive Planning</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        Describe the feature in natural language. Specwright creates structured specs with Definition of Done, acceptance criteria, and test requirements.
+                        No prompt engineering. No templates to fill. Your AI sparring partner asks the right questions and guides you through every decision.
                     </p>
                 </div>
                 
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="text-6xl font-extrabold text-primary/20 mb-4">02</div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Execute</h3>
+                <div class="p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Documentation as Code</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        Agents work autonomously: implementing, testing, documenting. You review the results. Human decisions for critical choices.
+                        All decisions stored as structured Markdown. Versioned. Traceable. Readable by humans and AI alike.
                     </p>
                 </div>
                 
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="text-6xl font-extrabold text-primary/20 mb-4">03</div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Learn</h3>
+                <div class="p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Consistency by Design</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        Feedback flows back automatically. Agents become smarter. Quality improves measurably with every completed feature.
+                        Every new feature reads your project documents. Architecture, tech stack, coding standards — all enforced automatically.
+                    </p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
+                    <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Auto-Mode</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Toggle on — all stories execute autonomously. Come back to finished PRs. Spec in the morning, let agents work for hours.
+                    </p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
+                    <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Spec Queue</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Queue complete feature specs. Cross-project. Press "Start". All get executed — overnight, over the weekend.
+                    </p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
+                    <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Multi-LLM Assignment</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Assign different models per story: Opus for architecture, Sonnet for CRUD, local models for sensitive data. You decide.
                     </p>
                 </div>
             </div>
@@ -342,66 +483,73 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                    How Specwright compares
+                    Specwright vs. Code Assistants
                 </h2>
-                <p class="text-lg text-slate-600">
-                    More than code completion — a complete development process
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Copilot and Cursor help you code. Specwright helps you think.
                 </p>
             </div>
             
-            <div class="bg-white rounded-lg border border-border shadow-soft overflow-x-auto">
-                <table class="w-full min-w-[600px]">
+            <div class="bg-white rounded-2xl border border-border shadow-sm overflow-x-auto">
+                <table class="w-full min-w-[700px]">
                     <thead>
                         <tr class="border-b border-border">
                             <th class="text-left p-6 font-semibold text-slate-800">Capability</th>
                             <th class="p-6 font-bold text-primary">Specwright</th>
-                            <th class="p-6 font-semibold text-slate-600">Cursor</th>
-                            <th class="p-6 font-semibold text-slate-600">Copilot</th>
-                            <th class="p-6 font-semibold text-slate-600">Devin</th>
+                            <th class="p-6 font-semibold text-slate-500">Cursor</th>
+                            <th class="p-6 font-semibold text-slate-500">Copilot</th>
+                            <th class="p-6 font-semibold text-slate-500">Devin</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
                         <tr class="border-b border-border/50">
-                            <td class="text-left p-6 text-slate-700">Full Lifecycle (Plan → Execute → Learn)</td>
-                            <td class="p-6 comparison-check font-bold">✓</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-partial">~</td>
+                            <td class="text-left p-6 text-slate-700">Interactive Project Planning</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
                         </tr>
                         <tr class="border-b border-border/50">
-                            <td class="text-left p-6 text-slate-700">Self-Learning Agents</td>
-                            <td class="p-6 comparison-check font-bold">✓</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
+                            <td class="text-left p-6 text-slate-700">Architecture Documentation</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-amber-500">~</td>
                         </tr>
                         <tr class="border-b border-border/50">
-                            <td class="text-left p-6 text-slate-700">Architecture Governance</td>
-                            <td class="p-6 comparison-check font-bold">✓</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
+                            <td class="text-left p-6 text-slate-700">Structured Specifications</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-amber-500">~</td>
                         </tr>
-                        <tr class="border-b border-border/50">
-                            <td class="text-left p-6 text-slate-700">SCRUM/SAFe Integration</td>
-                            <td class="p-6 comparison-check font-bold">✓</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-partial">~</td>
+                        <tr class="border-b border-border/50 bg-accent/5">
+                            <td class="text-left p-6 text-slate-700 font-semibold">Auto-Mode (Autonomous Boards)</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-amber-500">~</td>
+                        </tr>
+                        <tr class="border-b border-border/50 bg-accent/5">
+                            <td class="text-left p-6 text-slate-700 font-semibold">Spec Queue (Cross-Project)</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                        </tr>
+                        <tr class="border-b border-border/50 bg-accent/5">
+                            <td class="text-left p-6 text-slate-700 font-semibold">Multi-LLM per Story</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
                         </tr>
                         <tr class="border-b border-border/50">
                             <td class="text-left p-6 text-slate-700">Open Source</td>
-                            <td class="p-6 comparison-check font-bold">✓</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-x">—</td>
-                        </tr>
-                        <tr class="border-b border-border/50">
-                            <td class="text-left p-6 text-slate-700">Multi-LLM Support</td>
-                            <td class="p-6 comparison-check font-bold">✓</td>
-                            <td class="p-6 comparison-partial">~</td>
-                            <td class="p-6 comparison-x">—</td>
-                            <td class="p-6 comparison-partial">~</td>
+                            <td class="p-6 text-green-600 font-bold">✓</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
+                            <td class="p-6 text-slate-400">—</td>
                         </tr>
                         <tr>
                             <td class="text-left p-6 font-semibold text-slate-800">Price</td>
@@ -413,8 +561,9 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-center text-sm text-slate-500 mt-4">
-                ✓ Full support · ~ Partial · — Not available
+            
+            <p class="text-center text-slate-500 mt-6">
+                Specwright doesn't replace Copilot/Cursor — it adds the process layer they're missing.
             </p>
         </div>
     </section>
@@ -424,86 +573,76 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                    Open Source. Enterprise Ready.
+                    Open Source. Forever.
                 </h2>
                 <p class="text-lg text-slate-600">
-                    Start free. Scale with confidence.
+                    The framework is free. You only pay for LLM API usage.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Community Tier -->
-                <div class="bg-background p-10 rounded-lg border border-border">
-                    <div class="text-sm font-semibold text-primary mb-2">COMMUNITY</div>
+                <div class="bg-background p-10 rounded-2xl border border-border">
+                    <div class="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Community</div>
                     <div class="text-4xl font-extrabold text-slate-800 mb-2">Free</div>
                     <p class="text-slate-600 mb-8">For individual developers and small teams</p>
                     
                     <ul class="space-y-4 mb-10">
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary font-bold">✓</span>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
                             <span class="text-slate-700">All 34 workflows</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary font-bold">✓</span>
-                            <span class="text-slate-700">Self-learning agents</span>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-slate-700">Full documentation</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary font-bold">✓</span>
-                            <span class="text-slate-700">GitHub integration</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary font-bold">✓</span>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
                             <span class="text-slate-700">Multi-LLM support</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary font-bold">✓</span>
-                            <span class="text-slate-700">Community support (Discord)</span>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-slate-700">Community support (GitHub, Discord)</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary font-bold">✓</span>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
                             <span class="text-slate-700">MIT License</span>
                         </li>
                     </ul>
                     
-                    <a href="#cta" class="block w-full bg-white text-primary border-2 border-primary px-6 py-4 rounded-md font-semibold text-center btn-hover transition-smooth">
-                        Get Started
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="block w-full bg-white text-primary border-2 border-primary px-6 py-4 rounded-xl font-semibold text-center btn-hover transition-all">
+                        Start on GitHub
                     </a>
                 </div>
                 
-                <!-- Enterprise Tier -->
-                <div class="bg-primary p-10 rounded-lg text-white">
-                    <div class="text-sm font-semibold text-accent mb-2">ENTERPRISE</div>
+                <div class="bg-primary p-10 rounded-2xl text-white">
+                    <div class="text-sm font-bold text-accent mb-2 uppercase tracking-wide">Enterprise</div>
                     <div class="text-4xl font-extrabold mb-2">Let's Talk</div>
-                    <p class="text-white/80 mb-8">For large teams and regulated industries</p>
+                    <p class="text-white/70 mb-8">For large teams and regulated industries</p>
                     
                     <ul class="space-y-4 mb-10">
-                        <li class="flex items-start gap-3">
+                        <li class="flex items-center gap-3">
                             <span class="text-accent font-bold">✓</span>
                             <span>Everything in Community</span>
                         </li>
-                        <li class="flex items-start gap-3">
+                        <li class="flex items-center gap-3">
                             <span class="text-accent font-bold">✓</span>
-                            <span>Priority support (SLA)</span>
+                            <span>Onboarding & training</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Custom integrations</span>
-                        </li>
-                        <li class="flex items-start gap-3">
+                        <li class="flex items-center gap-3">
                             <span class="text-accent font-bold">✓</span>
                             <span>Architecture consulting</span>
                         </li>
-                        <li class="flex items-start gap-3">
+                        <li class="flex items-center gap-3">
                             <span class="text-accent font-bold">✓</span>
-                            <span>On-premise deployment</span>
+                            <span>Custom workflow development</span>
                         </li>
-                        <li class="flex items-start gap-3">
+                        <li class="flex items-center gap-3">
                             <span class="text-accent font-bold">✓</span>
-                            <span>Compliance assistance</span>
+                            <span>Priority support (SLA)</span>
                         </li>
                     </ul>
                     
-                    <a href="mailto:enterprise@specwright.app" class="block w-full bg-accent text-primary px-6 py-4 rounded-md font-semibold text-center btn-hover transition-smooth">
+                    <a href="mailto:enterprise@specwright.app" class="block w-full bg-accent text-primary px-6 py-4 rounded-xl font-semibold text-center btn-hover transition-all">
                         Contact Sales
                     </a>
                 </div>
@@ -521,80 +660,83 @@
             </div>
             
             <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="faq-item bg-white rounded-lg border border-border">
+                <div class="faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-slate-800">What is Specwright?</span>
-                        <span class="faq-icon text-2xl text-primary transition-smooth">+</span>
+                        <span class="font-semibold text-slate-800">What exactly is Specwright?</span>
+                        <span class="faq-icon text-2xl text-primary transition-transform">+</span>
                     </button>
                     <div class="faq-content">
                         <p class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Specwright is an open-source, spec-driven development framework that connects your SCRUM/SAFe processes with AI agents. It provides 34 structured workflows covering the entire development lifecycle — from product planning to feature delivery.
+                            Specwright is an open-source framework for Claude Code CLI. It consists of 34 structured workflows 
+                            that guide you through project planning, feature specification, and implementation — 
+                            with AI as your sparring partner, not autopilot.
                         </p>
                     </div>
                 </div>
                 
-                <!-- FAQ 2 -->
-                <div class="faq-item bg-white rounded-lg border border-border">
+                <div class="faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-slate-800">How is Specwright different from Cursor or Copilot?</span>
-                        <span class="faq-icon text-2xl text-primary transition-smooth">+</span>
+                        <span class="font-semibold text-slate-800">How is this different from Copilot or Cursor?</span>
+                        <span class="faq-icon text-2xl text-primary transition-transform">+</span>
                     </button>
                     <div class="faq-content">
                         <p class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Cursor and Copilot excel at code-level assistance — completions, editing, quick fixes. Specwright operates as a process layer above these tools. It handles specifications, planning, architecture governance, and self-learning — things code assistants don't cover.
+                            Copilot and Cursor are code assistants — they help you write code. Specwright is a process framework — 
+                            it helps you think. You work out architecture decisions interactively, document them, 
+                            and every feature automatically follows your rules.
                         </p>
                     </div>
                 </div>
                 
-                <!-- FAQ 3 -->
-                <div class="faq-item bg-white rounded-lg border border-border">
+                <div class="faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Does it work with existing projects?</span>
-                        <span class="faq-icon text-2xl text-primary transition-smooth">+</span>
+                        <span class="faq-icon text-2xl text-primary transition-transform">+</span>
                     </button>
                     <div class="faq-content">
                         <p class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Yes. Specwright's <code class="font-mono bg-slate-100 px-2 py-1 rounded">/analyze-product</code> command creates comprehensive documentation from your existing codebase in under 30 minutes. Zero migration required for brownfield projects.
+                            Yes. The <code class="font-mono bg-slate-100 px-2 py-1 rounded">/analyze-product</code> workflow 
+                            analyzes your existing codebase and creates project documents retroactively. 
+                            Zero migration required — Specwright adapts to you.
                         </p>
                     </div>
                 </div>
                 
-                <!-- FAQ 4 -->
-                <div class="faq-item bg-white rounded-lg border border-border">
+                <div class="faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Which LLMs are supported?</span>
-                        <span class="faq-icon text-2xl text-primary transition-smooth">+</span>
+                        <span class="faq-icon text-2xl text-primary transition-transform">+</span>
                     </button>
                     <div class="faq-content">
                         <p class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Specwright is LLM-agnostic. It works with OpenAI, Anthropic Claude, local models via Ollama, and any OpenAI-compatible API. Mix and match based on task requirements and cost.
+                            Specwright is LLM-agnostic. It works with Anthropic Claude, OpenAI, local models via Ollama, 
+                            and any OpenAI-compatible API. Mix and match based on task requirements and cost.
                         </p>
                     </div>
                 </div>
                 
-                <!-- FAQ 5 -->
-                <div class="faq-item bg-white rounded-lg border border-border">
+                <div class="faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Is it really free?</span>
-                        <span class="faq-icon text-2xl text-primary transition-smooth">+</span>
+                        <span class="faq-icon text-2xl text-primary transition-transform">+</span>
                     </button>
                     <div class="faq-content">
                         <p class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            The core framework is 100% open source under MIT license. You only pay for LLM API usage. Enterprise support and consulting are available for teams that need SLAs and hands-on assistance.
+                            The framework itself is 100% open source under MIT license. You only pay for LLM API usage 
+                            (Anthropic, OpenAI, etc.). Enterprise support with SLA is optionally available.
                         </p>
                     </div>
                 </div>
                 
-                <!-- FAQ 6 -->
-                <div class="faq-item bg-white rounded-lg border border-border">
+                <div class="faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-slate-800">How do I get started?</span>
-                        <span class="faq-icon text-2xl text-primary transition-smooth">+</span>
+                        <span class="font-semibold text-slate-800">Do I need to know prompt engineering?</span>
+                        <span class="faq-icon text-2xl text-primary transition-transform">+</span>
                     </button>
                     <div class="faq-content">
                         <p class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Sign up for early access, and we'll notify you when the public beta launches. Or star us on GitHub to follow development.
+                            No. Specwright guides you through interactive dialogs. The AI sparring partner asks the right questions — 
+                            you just answer and decide.
                         </p>
                     </div>
                 </div>
@@ -606,88 +748,74 @@
     <section id="cta" class="py-24 md:py-32 bg-gradient-to-br from-primary to-primary-dark">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                Ready for structured AI development?
+                Ready to architect smarter?
             </h2>
-            <p class="text-xl text-white/80 mb-10">
-                Join the early access list and be part of the future of enterprise AI coding.
+            <p class="text-xl text-white/70 mb-10">
+                Start your next project with an AI sparring partner that understands 
+                and respects your architecture.
             </p>
             
-            <!-- Email Form -->
-            <form id="signup-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-6">
-                <input 
-                    type="email" 
-                    placeholder="Enter your work email" 
-                    required
-                    class="flex-1 px-6 py-4 rounded-md text-slate-800 bg-white border-0 focus:ring-2 focus:ring-accent focus:outline-none"
-                >
-                <button 
-                    type="submit" 
-                    class="bg-accent text-primary px-8 py-4 rounded-md font-bold btn-hover transition-smooth whitespace-nowrap"
-                >
-                    Get Early Access
-                </button>
-            </form>
-            
-            <p class="text-white/60 text-sm">
-                No spam. Only updates when something important happens.
-            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/michsindlinger/specwright" target="_blank" class="bg-accent text-primary px-8 py-4 rounded-xl font-bold text-lg btn-hover transition-all">
+                    View on GitHub
+                </a>
+                <a href="#" class="bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
+                    Read the Docs
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 bg-primary-dark text-white/80">
+    <footer class="py-16 bg-primary-dark text-white/70">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <!-- Brand -->
                 <div>
                     <div class="text-2xl font-bold text-white mb-4">Specwright</div>
-                    <p class="text-white/60">
+                    <p class="text-white/50">
                         Open source spec-driven development framework for Claude Code.
                     </p>
                 </div>
                 
-                <!-- Product -->
                 <div>
                     <div class="font-semibold text-white mb-4">Product</div>
                     <ul class="space-y-3">
-                        <li><a href="#features" class="hover:text-white transition-smooth">Features</a></li>
-                        <li><a href="#pricing" class="hover:text-white transition-smooth">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Documentation</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Changelog</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Changelog</a></li>
                     </ul>
                 </div>
                 
-                <!-- Resources -->
                 <div>
                     <div class="font-semibold text-white mb-4">Resources</div>
                     <ul class="space-y-3">
-                        <li><a href="https://github.com/michsindlinger/specwright" target="_blank" class="hover:text-white transition-smooth">GitHub</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Discord</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Tutorials</a></li>
+                        <li><a href="https://github.com/michsindlinger/specwright" target="_blank" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Discord</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutorials</a></li>
                     </ul>
                 </div>
                 
-                <!-- Company -->
                 <div>
                     <div class="font-semibold text-white mb-4">Company</div>
                     <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-white transition-smooth">About</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-smooth">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-white/60 text-sm">
+                <p class="text-white/50 text-sm">
                     © 2026 Specwright. Open source under MIT License.
                 </p>
                 <div class="flex gap-6">
-                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="text-white/60 hover:text-white transition-smooth">GitHub</a>
-                    <a href="#" class="text-white/60 hover:text-white transition-smooth">Twitter</a>
-                    <a href="#" class="text-white/60 hover:text-white transition-smooth">Discord</a>
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="text-white/50 hover:text-white transition-colors">GitHub</a>
+                    <a href="#" class="text-white/50 hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="text-white/50 hover:text-white transition-colors">Discord</a>
                 </div>
             </div>
         </div>
@@ -697,58 +825,24 @@
         // Navigation scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
+            navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
         });
         
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu on link click
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
         
         // FAQ accordion
         function toggleFaq(button) {
             const item = button.parentElement;
             const wasActive = item.classList.contains('active');
-            
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(faq => {
-                faq.classList.remove('active');
-            });
-            
-            // Open clicked (if wasn't already open)
-            if (!wasActive) {
-                item.classList.add('active');
-            }
+            document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+            if (!wasActive) item.classList.add('active');
         }
-        
-        // Form submission (placeholder)
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const button = this.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = 'Joining...';
-            button.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                button.textContent = "You're In! ✓";
-                button.classList.remove('bg-accent');
-                button.classList.add('bg-green-500');
-            }, 1000);
-        });
     </script>
 </body>
 </html>
