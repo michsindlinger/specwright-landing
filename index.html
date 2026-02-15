@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specwright – Build Products People Actually Want</title>
+    <meta name="description" content="Validate your market position and create winning product specifications with AI-powered analysis.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',    // Indigo
+                        secondary: '#8b5cf6',  // Violet
+                        accent: '#06b6d4',     // Cyan
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold text-primary">Specwright</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-primary transition">Features</a>
+                    <a href="#how-it-works" class="text-gray-600 hover:text-primary transition">How It Works</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-primary transition">Pricing</a>
+                    <a href="#cta" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition">Get Started</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#features" class="block text-gray-600 hover:text-primary">Features</a>
+                <a href="#how-it-works" class="block text-gray-600 hover:text-primary">How It Works</a>
+                <a href="#pricing" class="block text-gray-600 hover:text-primary">Pricing</a>
+                <a href="#cta" class="block bg-primary text-white px-4 py-2 rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Build Products People
+                <span class="text-primary">Actually Want</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Stop guessing. Validate your market position, analyze competitors, and create winning product specifications – powered by AI.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#cta" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition shadow-lg shadow-primary/25">
+                    Start Free Analysis
+                </a>
+                <a href="#how-it-works" class="bg-white text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition border border-gray-200">
+                    See How It Works
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Everything You Need to Validate Your Product
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    From market research to actionable specs – all in one place.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Market Analysis</h3>
+                    <p class="text-gray-600">
+                        Deep-dive into your market landscape. Understand trends, gaps, and opportunities before you build.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Competitor Intelligence</h3>
+                    <p class="text-gray-600">
+                        Know exactly what your competitors offer, where they fall short, and how to differentiate.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Specifications</h3>
+                    <p class="text-gray-600">
+                        Generate detailed product specs that developers love – clear, actionable, and market-validated.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    How It Works
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Three simple steps from idea to validated specification.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                        1
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Describe Your Product</h3>
+                    <p class="text-gray-600">
+                        Tell us about your product idea or existing solution. The more context, the better.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                        2
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AI-Powered Analysis</h3>
+                    <p class="text-gray-600">
+                        Our AI researches your market, analyzes competitors, and identifies positioning opportunities.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                        3
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Get Your Specs</h3>
+                    <p class="text-gray-600">
+                        Receive a comprehensive specification document ready for development.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Simple Pricing
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Start free. Upgrade when you need more.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Free Tier -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                    <p class="text-gray-600 mb-6">Perfect for exploring</p>
+                    <div class="text-4xl font-bold text-gray-900 mb-6">
+                        Free
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            1 product analysis
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Basic market overview
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Core specification output
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block text-center bg-white text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition border border-gray-200">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Pro Tier -->
+                <div class="bg-primary rounded-2xl p-8 text-white relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-white/20 text-white text-sm px-3 py-1 rounded-full">
+                        Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                    <p class="text-white/80 mb-6">For serious builders</p>
+                    <div class="text-4xl font-bold mb-6">
+                        $49<span class="text-lg font-normal text-white/80">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Unlimited analyses
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Deep competitor research
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Full specification exports
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Priority support
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block text-center bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Start Pro Trial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                Ready to Build Something Great?
+            </h2>
+            <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Join hundreds of founders and product teams who validate before they build.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    class="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                    required
+                >
+                <button 
+                    type="submit" 
+                    class="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition"
+                >
+                    Get Early Access
+                </button>
+            </form>
+            <p class="text-white/70 text-sm mt-4">
+                Free to start. No credit card required.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-white mb-4 md:mb-0">Specwright</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition">Privacy</a>
+                    <a href="#" class="hover:text-white transition">Terms</a>
+                    <a href="#" class="hover:text-white transition">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                © 2026 Specwright. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
