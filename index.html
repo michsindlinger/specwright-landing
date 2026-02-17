@@ -75,6 +75,56 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        /* Stagger Delays */
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+        .stagger-4 { transition-delay: 400ms; }
+        .stagger-5 { transition-delay: 500ms; }
+        .stagger-6 { transition-delay: 600ms; }
+
+        /* Hero Entrance */
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        .hero-animate.visible {
+            animation: heroIn 0.7s ease forwards;
+        }
+        .hero-animate.hero-delay-1 { animation-delay: 0ms; }
+        .hero-animate.hero-delay-2 { animation-delay: 150ms; }
+        .hero-animate.hero-delay-3 { animation-delay: 300ms; }
+        .hero-animate.hero-delay-4 { animation-delay: 450ms; }
+        .hero-animate.hero-delay-5 { animation-delay: 550ms; }
+        @keyframes heroIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Counter Animation */
+        .counter-value {
+            display: inline-block;
+        }
+
+        /* CTA Glow Pulse */
+        .cta-glow {
+            animation: glowPulse 2.5s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+            50% { box-shadow: 0 0 24px 4px rgba(0, 212, 255, 0.25); }
+        }
     </style>
 </head>
 <body class="font-sans text-slate-700 antialiased">
@@ -115,26 +165,26 @@
     <section class="min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary-dark pt-20">
         <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
             <div class="max-w-4xl">
-                <span class="inline-block bg-white/10 text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
+                <span class="hero-animate hero-delay-1 inline-block bg-white/10 text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
                     Open Source Framework for Claude Code
                 </span>
-                
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+
+                <h1 class="hero-animate hero-delay-2 text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
                     You architect.<br>
                     <span class="text-accent">Agents deliver.</span>
                 </h1>
-                
-                <p class="text-xl md:text-2xl text-white/70 leading-relaxed mb-4 max-w-2xl">
+
+                <p class="hero-animate hero-delay-3 text-xl md:text-2xl text-white/70 leading-relaxed mb-4 max-w-2xl">
                     Spec-driven development with self-learning AI agents.
                 </p>
-                
-                <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl">
-                    Define your architecture interactively. Create structured specifications. 
+
+                <p class="hero-animate hero-delay-4 text-lg text-white/60 leading-relaxed mb-10 max-w-2xl">
+                    Define your architecture interactively. Create structured specifications.
                     Let autonomous agents build features while you sleep.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="bg-accent text-primary px-8 py-4 rounded-xl font-bold text-lg btn-hover transition-all text-center">
+
+                <div class="hero-animate hero-delay-5 flex flex-col sm:flex-row gap-4">
+                    <a href="https://github.com/michsindlinger/specwright" target="_blank" class="cta-glow bg-accent text-primary px-8 py-4 rounded-xl font-bold text-lg btn-hover transition-all text-center">
                         View on GitHub
                     </a>
                     <a href="#how-it-works" class="bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all text-center border border-white/20">
@@ -148,7 +198,7 @@
     <!-- Problem Section -->
     <section class="py-24 md:py-32 bg-background">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
                     AI coding without structure = chaos over time
                 </h2>
@@ -158,21 +208,21 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
+                <div class="reveal stagger-1 bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Every feature starts from zero</h3>
                     <p class="text-slate-600 leading-relaxed">
                         No architecture guidelines. No conventions. Every time you explain where files go, which patterns apply, how to test.
                     </p>
                 </div>
-                
-                <div class="bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
+
+                <div class="reveal stagger-2 bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Inconsistent results</h3>
                     <p class="text-slate-600 leading-relaxed">
                         Feature A uses Redux, Feature B uses Zustand. REST here, GraphQL there. The codebase grows — but not together.
                     </p>
                 </div>
-                
-                <div class="bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
+
+                <div class="reveal stagger-3 bg-white p-8 rounded-2xl border border-border shadow-sm card-hover transition-all">
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Knowledge gets lost</h3>
                     <p class="text-slate-600 leading-relaxed">
                         Why did we decide that? Nobody knows anymore. Documentation doesn't exist — or it's outdated.
@@ -185,7 +235,7 @@
     <!-- Solution Section -->
     <section class="py-24 md:py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center mb-16">
+            <div class="reveal max-w-3xl mx-auto text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
                     Meet your AI sparring partner
                 </h2>
@@ -193,26 +243,26 @@
                     Design decisions interactively. Execute autonomously.
                 </p>
                 <p class="text-lg text-slate-600 leading-relaxed">
-                    Specwright guides you through architecture decisions with an AI sparring partner. 
+                    Specwright guides you through architecture decisions with an AI sparring partner.
                     Every decision is documented. Every feature follows your rules automatically.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">34</div>
+                <div class="reveal stagger-1 text-center">
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="34" data-suffix="">0</span></div>
                     <div class="text-slate-600 text-sm">Workflows</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">100%</div>
+                <div class="reveal stagger-2 text-center">
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="100" data-suffix="%">0%</span></div>
                     <div class="text-slate-600 text-sm">Open Source</div>
                 </div>
-                <div class="text-center">
+                <div class="reveal stagger-3 text-center">
                     <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">∞</div>
                     <div class="text-slate-600 text-sm">LLMs Supported</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">0</div>
+                <div class="reveal stagger-4 text-center">
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="0" data-suffix="">0</span></div>
                     <div class="text-slate-600 text-sm">Vendor Lock-in</div>
                 </div>
             </div>
@@ -222,7 +272,7 @@
     <!-- Autonomous Execution Section (Hero Feature) -->
     <section class="py-24 md:py-32 bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">
                     Spec in the morning.<br>
                     <span class="text-accent">PRs by evening.</span>
@@ -231,10 +281,10 @@
                     Specwright UI makes autonomous feature development real.
                 </p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Auto-Mode -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                <div class="reveal stagger-1 bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
                     <div class="text-accent font-bold text-sm mb-4 uppercase tracking-wide">Auto-Mode</div>
                     <h3 class="text-2xl font-bold mb-4">Autonomous Kanban Boards</h3>
                     <p class="text-white/80 leading-relaxed mb-6">
@@ -261,7 +311,7 @@
                 </div>
                 
                 <!-- Spec Queue -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                <div class="reveal stagger-2 bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
                     <div class="text-accent font-bold text-sm mb-4 uppercase tracking-wide">Spec Queue</div>
                     <h3 class="text-2xl font-bold mb-4">Cross-Project Execution</h3>
                     <p class="text-white/80 leading-relaxed mb-6">
@@ -297,15 +347,15 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="py-24 md:py-32 bg-background">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
                     From idea to feature in 3 phases
                 </h2>
             </div>
-            
+
             <div class="space-y-16">
                 <!-- Phase 1 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <div class="text-6xl font-extrabold text-primary/20 mb-4">01</div>
                         <div class="inline-block bg-primary-subtle text-primary px-3 py-1 rounded-full text-sm font-mono mb-4">/plan-product</div>
@@ -340,7 +390,7 @@
                 </div>
                 
                 <!-- Phase 2 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal grid md:grid-cols-2 gap-12 items-center">
                     <div class="md:order-2">
                         <div class="text-6xl font-extrabold text-primary/20 mb-4">02</div>
                         <div class="inline-block bg-primary-subtle text-primary px-3 py-1 rounded-full text-sm font-mono mb-4">/create-spec</div>
@@ -381,7 +431,7 @@
                 </div>
                 
                 <!-- Phase 3 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <div class="text-6xl font-extrabold text-primary/20 mb-4">03</div>
                         <div class="inline-block bg-primary-subtle text-primary px-3 py-1 rounded-full text-sm font-mono mb-4">/execute-tasks</div>
@@ -423,35 +473,35 @@
     <!-- Features Section -->
     <section id="features" class="py-24 md:py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
                     Everything for structured AI development
                 </h2>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                <div class="reveal stagger-1 p-8 rounded-2xl border border-border bg-background card-hover transition-all">
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Interactive Planning</h3>
                     <p class="text-slate-600 leading-relaxed">
                         No prompt engineering. No templates to fill. Your AI sparring partner asks the right questions and guides you through every decision.
                     </p>
                 </div>
                 
-                <div class="p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                <div class="reveal stagger-2 p-8 rounded-2xl border border-border bg-background card-hover transition-all">
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Documentation as Code</h3>
                     <p class="text-slate-600 leading-relaxed">
                         All decisions stored as structured Markdown. Versioned. Traceable. Readable by humans and AI alike.
                     </p>
                 </div>
                 
-                <div class="p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                <div class="reveal stagger-3 p-8 rounded-2xl border border-border bg-background card-hover transition-all">
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Consistency by Design</h3>
                     <p class="text-slate-600 leading-relaxed">
                         Every new feature reads your project documents. Architecture, tech stack, coding standards — all enforced automatically.
                     </p>
                 </div>
                 
-                <div class="p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
+                <div class="reveal stagger-4 p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
                     <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Auto-Mode</h3>
                     <p class="text-slate-600 leading-relaxed">
@@ -459,7 +509,7 @@
                     </p>
                 </div>
                 
-                <div class="p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
+                <div class="reveal stagger-5 p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
                     <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Spec Queue</h3>
                     <p class="text-slate-600 leading-relaxed">
@@ -467,7 +517,7 @@
                     </p>
                 </div>
                 
-                <div class="p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
+                <div class="reveal stagger-6 p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
                     <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Multi-LLM Assignment</h3>
                     <p class="text-slate-600 leading-relaxed">
@@ -481,7 +531,7 @@
     <!-- Comparison Section -->
     <section class="py-24 md:py-32 bg-background">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
                     Specwright vs. Code Assistants
                 </h2>
@@ -489,8 +539,8 @@
                     Copilot and Cursor help you code. Specwright helps you think.
                 </p>
             </div>
-            
-            <div class="bg-white rounded-2xl border border-border shadow-sm overflow-x-auto">
+
+            <div class="reveal stagger-2 bg-white rounded-2xl border border-border shadow-sm overflow-x-auto">
                 <table class="w-full min-w-[700px]">
                     <thead>
                         <tr class="border-b border-border">
@@ -571,7 +621,7 @@
     <!-- Get Started Section -->
     <section id="pricing" class="py-24 md:py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
                     100% Open Source. No Strings Attached.
                 </h2>
@@ -579,10 +629,10 @@
                     The complete framework is free forever. You only pay for LLM API usage.
                 </p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Open Source -->
-                <div class="bg-background p-10 rounded-2xl border border-border">
+                <div class="reveal stagger-1 bg-background p-10 rounded-2xl border border-border">
                     <div class="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Framework</div>
                     <div class="text-4xl font-extrabold text-slate-800 mb-2">Free Forever</div>
                     <p class="text-slate-600 mb-8">Everything you need to get started</p>
@@ -620,7 +670,7 @@
                 </div>
                 
                 <!-- Kickstart Session -->
-                <div class="bg-primary p-10 rounded-2xl text-white">
+                <div class="reveal stagger-2 bg-primary p-10 rounded-2xl text-white">
                     <div class="text-sm font-bold text-accent mb-2 uppercase tracking-wide">Kickstart Session</div>
                     <div class="text-4xl font-extrabold mb-2">$199</div>
                     <p class="text-white/70 mb-8">90 minutes to mastery</p>
@@ -648,7 +698,7 @@
                         </li>
                     </ul>
                     
-                    <a href="mailto:hello@specwright.app?subject=Kickstart%20Session" class="block w-full bg-accent text-primary px-6 py-4 rounded-xl font-semibold text-center btn-hover transition-all">
+                    <a href="mailto:hello@specwright.app?subject=Kickstart%20Session" class="cta-glow block w-full bg-accent text-primary px-6 py-4 rounded-xl font-semibold text-center btn-hover transition-all">
                         Book Your Session
                     </a>
                 </div>
@@ -663,14 +713,14 @@
     <!-- FAQ Section -->
     <section class="py-24 md:py-32 bg-background">
         <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="reveal text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
                     Frequently Asked Questions
                 </h2>
             </div>
             
             <div class="space-y-4">
-                <div class="faq-item bg-white rounded-2xl border border-border">
+                <div class="reveal stagger-1 faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">What exactly is Specwright?</span>
                         <span class="faq-icon text-2xl text-primary transition-transform">+</span>
@@ -684,7 +734,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-2xl border border-border">
+                <div class="reveal stagger-2 faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">How is this different from Copilot or Cursor?</span>
                         <span class="faq-icon text-2xl text-primary transition-transform">+</span>
@@ -698,7 +748,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-2xl border border-border">
+                <div class="reveal stagger-3 faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Does it work with existing projects?</span>
                         <span class="faq-icon text-2xl text-primary transition-transform">+</span>
@@ -712,7 +762,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-2xl border border-border">
+                <div class="reveal stagger-4 faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Which LLMs are supported?</span>
                         <span class="faq-icon text-2xl text-primary transition-transform">+</span>
@@ -725,7 +775,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-2xl border border-border">
+                <div class="reveal stagger-5 faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Is it really free?</span>
                         <span class="faq-icon text-2xl text-primary transition-transform">+</span>
@@ -738,7 +788,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-2xl border border-border">
+                <div class="reveal stagger-6 faq-item bg-white rounded-2xl border border-border">
                     <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFaq(this)">
                         <span class="font-semibold text-slate-800">Do I need to know prompt engineering?</span>
                         <span class="faq-icon text-2xl text-primary transition-transform">+</span>
@@ -757,16 +807,16 @@
     <!-- CTA Section -->
     <section id="cta" class="py-24 md:py-32 bg-gradient-to-br from-primary to-primary-dark">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 class="reveal text-3xl md:text-4xl font-bold text-white mb-6">
                 Ready to architect smarter?
             </h2>
-            <p class="text-xl text-white/70 mb-10">
-                Start your next project with an AI sparring partner that understands 
+            <p class="reveal stagger-1 text-xl text-white/70 mb-10">
+                Start your next project with an AI sparring partner that understands
                 and respects your architecture.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://github.com/michsindlinger/specwright" target="_blank" class="bg-accent text-primary px-8 py-4 rounded-xl font-bold text-lg btn-hover transition-all">
+
+            <div class="reveal stagger-2 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/michsindlinger/specwright" target="_blank" class="cta-glow bg-accent text-primary px-8 py-4 rounded-xl font-bold text-lg btn-hover transition-all">
                     View on GitHub
                 </a>
                 <a href="#" class="bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
@@ -853,6 +903,53 @@
             document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
             if (!wasActive) item.classList.add('active');
         }
+
+        // Hero entrance — trigger after page load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hero-animate').forEach(el => {
+                el.classList.add('visible');
+            });
+        });
+
+        // Scroll Reveal — IntersectionObserver
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Counter Animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    const suffix = el.dataset.suffix || '';
+                    if (target === 0) { el.textContent = '0' + suffix; counterObserver.unobserve(el); return; }
+                    const duration = 1200;
+                    const start = performance.now();
+                    const step = (now) => {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.round(eased * target) + suffix;
+                        if (progress < 1) requestAnimationFrame(step);
+                    };
+                    requestAnimationFrame(step);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-value').forEach(el => {
+            counterObserver.observe(el);
+        });
     </script>
 </body>
 </html>
