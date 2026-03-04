@@ -130,10 +130,12 @@
 <body class="font-sans text-slate-700 antialiased">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scrolled">
         <div class="max-w-6xl mx-auto px-6 py-5">
             <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold text-primary">Specwright</a>
+                <a href="#" class="flex items-center">
+                    <img src="assets/img/specwright-logo-web.png" alt="Specwright" class="h-8">
+                </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#features" class="text-slate-600 hover:text-primary transition-colors">Features</a>
                     <a href="#how-it-works" class="text-slate-600 hover:text-primary transition-colors">How It Works</a>
@@ -250,7 +252,7 @@
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
                 <div class="reveal stagger-1 text-center">
-                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="34" data-suffix="">0</span></div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="37" data-suffix="">0</span></div>
                     <div class="text-slate-600 text-sm">Workflows</div>
                 </div>
                 <div class="reveal stagger-2 text-center">
@@ -262,8 +264,8 @@
                     <div class="text-slate-600 text-sm">LLMs Supported</div>
                 </div>
                 <div class="reveal stagger-4 text-center">
-                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="0" data-suffix="">0</span></div>
-                    <div class="text-slate-600 text-sm">Vendor Lock-in</div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2"><span class="counter-value" data-target="15" data-suffix="+">0+</span></div>
+                    <div class="text-slate-600 text-sm">MCP Tools</div>
                 </div>
             </div>
         </div>
@@ -502,7 +504,7 @@
                 </div>
                 
                 <div class="reveal stagger-4 p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
-                    <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
+                    <div class="text-accent text-xs font-bold mb-2">★ FLAGSHIP</div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Auto-Mode</h3>
                     <p class="text-slate-600 leading-relaxed">
                         Toggle on — all stories execute autonomously. Come back to finished PRs. Spec in the morning, let agents work for hours.
@@ -510,7 +512,7 @@
                 </div>
                 
                 <div class="reveal stagger-5 p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
-                    <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
+                    <div class="text-accent text-xs font-bold mb-2">★ FLAGSHIP</div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Spec Queue</h3>
                     <p class="text-slate-600 leading-relaxed">
                         Queue complete feature specs. Cross-project. Press "Start". All get executed — overnight, over the weekend.
@@ -518,10 +520,34 @@
                 </div>
                 
                 <div class="reveal stagger-6 p-8 rounded-2xl border border-accent/30 bg-white shadow-sm card-hover transition-all">
-                    <div class="text-accent text-xs font-bold mb-2">★ KILLER FEATURE</div>
+                    <div class="text-accent text-xs font-bold mb-2">★ FLAGSHIP</div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">Multi-LLM Assignment</h3>
                     <p class="text-slate-600 leading-relaxed">
                         Assign different models per story: Opus for architecture, Sonnet for CRUD, local models for sensitive data. You decide.
+                    </p>
+                </div>
+
+                <div class="reveal stagger-1 p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                    <div class="text-accent text-xs font-bold mb-2">NEW</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Persistent Memory</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        SQLite-based knowledge store with FTS5 full-text search. Your agents remember decisions, patterns, and learnings across sessions.
+                    </p>
+                </div>
+
+                <div class="reveal stagger-2 p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                    <div class="text-accent text-xs font-bold mb-2">NEW</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Market Validation</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Validate product ideas with structured market analysis. Competitive research, landing pages, and ad campaigns — all from one workflow.
+                    </p>
+                </div>
+
+                <div class="reveal stagger-3 p-8 rounded-2xl border border-border bg-background card-hover transition-all">
+                    <div class="text-accent text-xs font-bold mb-2">NEW</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Brainstorming & Feedback</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Interactive idea exploration with an AI innovation coach. Transfer results directly into specs, bugs, or product plans.
                     </p>
                 </div>
             </div>
@@ -654,7 +680,7 @@
                     <ul class="space-y-4 mb-10">
                         <li class="flex items-center gap-3">
                             <span class="text-green-600 font-bold">✓</span>
-                            <span class="text-slate-700">All 34 workflows</span>
+                            <span class="text-slate-700">All 37 workflows</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="text-green-600 font-bold">✓</span>
@@ -667,6 +693,14 @@
                         <li class="flex items-center gap-3">
                             <span class="text-green-600 font-bold">✓</span>
                             <span class="text-slate-700">Auto-Mode & Spec Queue</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-slate-700">Persistent Memory DB</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-slate-700">Market Validation workflows</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="text-green-600 font-bold">✓</span>
@@ -896,11 +930,7 @@
     </footer>
 
     <script>
-        // Navigation scroll effect
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
-        });
         
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
